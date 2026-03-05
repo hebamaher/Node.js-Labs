@@ -1,0 +1,35 @@
+1. Why Global Error Handling is Important
+
+Ensures all errors are caught in a single place.
+
+Prevents the server from crashing due to uncaught errors.
+
+Provides consistent error responses to the client.
+
+Easier to log and monitor errors.
+
+2. How It’s Implemented Using Middleware
+
+In Express, a global error handler is a middleware with 4 arguments:
+
+app.use((err, req, res, next) => {
+    console.error(err.stack); // log the error
+    res.status(err.status || 500).json({
+        message: err.message || "Internal Server Error"
+    });
+});
+
+Any error passed with next(err) from routes or middleware goes here.
+
+Handles all unhandled errors across the app.
+
+3. Difference Between Local and Global Error Handling
+Local Error Handling:
+- Scope is specific route or middleware
+- Errors are caught by try-catch blocks or route-specific checks
+- Response is custom per route
+
+Global Error Handling
+- Scope is the entire application
+- next(err) passes errors to a central middleware
+- Response is consistent response format for all errors

@@ -262,7 +262,7 @@ export const template = (email) => {
                     <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: auto;">
                       <tr>
                         <td style="background:#4e8991;text-align:center">
-                          <a href="localhost:3000/verify/${email}" style="border: 1px solid #4e8991; font-family: Verdana, Arial,sans-serif; font-size:14px; mso-line-height-rule: exactly;line-height: 14px; text-decoration: none; padding: 10px 31px; color: #ffffff; font-weight:bold;display: block;">
+                          <a href="https://localhost:3000/verify/${email}" style="border: 1px solid #4e8991; font-family: Verdana, Arial,sans-serif; font-size:14px; mso-line-height-rule: exactly;line-height: 14px; text-decoration: none; padding: 10px 31px; color: #ffffff; font-weight:bold;display: block;">
                           <strong>Verify Email</strong>
                           </a>
                         </td>

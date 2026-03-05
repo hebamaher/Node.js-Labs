@@ -1,6 +1,8 @@
 import { getComments, myComments, createComment, updateComment, deleteComment } from "./Comment.controller.js";
 import express from "express";
 import verifyToken from "../../Middleware/verifyToken.js";
+import { validationMiddleware } from "../../Middleware/validationMiddleware.js";
+import createCommentSchema from "../../Validation/commentValidation.js";
 
 
 const commentRoutes = express.Router();
@@ -8,7 +10,7 @@ commentRoutes.use(verifyToken);
 
 commentRoutes.get("/comments", getComments)
 commentRoutes.get("/myComments", myComments)
-commentRoutes.post("/comments", createComment)
+commentRoutes.post("/comments", validationMiddleware(createCommentSchema), createComment)
 commentRoutes.put("/comments/:id", updateComment)
 commentRoutes.delete("/comments/:id", deleteComment)
 
